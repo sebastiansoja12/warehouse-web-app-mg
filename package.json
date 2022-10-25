@@ -1,6 +1,6 @@
 {
   "name": "inparcel-mg",
-  "version": "2022.11",
+  "version": "2022.13",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
