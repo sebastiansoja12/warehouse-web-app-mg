@@ -1,6 +1,6 @@
 {
   "name": "inparcel-mg",
-  "version": "2022.13",
+  "version": "2022.14",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.3",
