@@ -5,7 +5,7 @@ export default function AllDepots() {
 
 
     function loadDepots() {
-        fetch("http://localhost:8080/depot/depotCode/KT3")
+        fetch("http://localhost:8080/v2/api/depots/depotCode/KT3")
             .then((res) => res.json())
             .then((res) => setDepot(res));
     }
@@ -19,24 +19,22 @@ export default function AllDepots() {
             <table className="table table-compact w-full">
                 <thead>
                 <tr>
-                    <th></th>
-                    <th>Name</th>
-                    <th>Job</th>
-                    <th>company</th>
-                    <th>location</th>
-                    <th>Last Login</th>
-                    <th>Favorite Color</th>
+                    <th>Depot code</th>
+                    <th>City</th>
+                    <th>Street</th>
+                    <th>Country</th>
+                    <th>Lat</th>
+                    <th>Lon</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
-                    <th>1</th>
                     <td>{depots.depotCode}</td>
-                    <td>Quality Control Specialist</td>
-                    <td>Littel, Schaden and Vandervort</td>
-                    <td>Canada</td>
-                    <td>12/16/2020</td>
-                    <td>Blue</td>
+                    <td>{depots.city}</td>
+                    <td>{depots.street}</td>
+                    <td>{depots.country}</td>
+                    <td>{depots.coordinates.lat}</td>
+                    <td>{depots.coordinates.lon}</td>
                 </tr>
                 </tbody>
             </table>
