@@ -5,7 +5,7 @@ export default function AllDepots() {
 
 
     function loadDepots() {
-        fetch("http://localhost:8080/v2/api/depots/depotCode/KT3")
+        fetch("https://inparcel-dev-v2.herokuapp.com/v2/api/depots/depotCode/KT3")
             .then((res) => res.json())
             .then((res) => setDepot(res));
     }
