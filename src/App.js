@@ -10,21 +10,24 @@ import Header from "./header/header";
 
 function App() {
   return (
-      <div>
-      <Header/>
-      <BrowserRouter>
-          <Routes>
-              <Route path="/"       element={<AllRoutes />}/>
-              <Route path="depots"  element={<AllDepots />} />
-          </Routes>
-      </BrowserRouter>
-      <Footer/>
-      </div>
+      <div className='App'>
+          <div className='page-container'>
+              <div className='content-wrapper'>
+                  <Header/>
+                  <BrowserRouter>
+                      <Routes>
+                          <Route path="/" element={<AllRoutes/>}/>
+                          <Route path="depots" element={<AllDepots/>}/>
+                      </Routes>
+                  </BrowserRouter>
+              </div>
 
+              <Footer/>
+          </div>
+      </div>
 );
 }
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
-
 
 export default App;
