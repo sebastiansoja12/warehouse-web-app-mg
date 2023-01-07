@@ -2,10 +2,12 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import './App.css';
-import AllRoutes from "./component/routes";
+import AllRoutes from "./component/Route/route";
 import AllDepots from "./component/Depot/depot";
 import Footer from "./footer/footer";
 import Header from "./header/header";
+import Login from "./component/Login/Login";
+import AdminRoute from "./component/Administrator/adminRoute";
 
 
 function App() {
@@ -13,11 +15,13 @@ function App() {
       <div className='App'>
           <div className='page-container'>
               <div className='content-wrapper'>
-                  <Header/>
                   <BrowserRouter>
+                      <Header/>
                       <Routes>
                           <Route path="/" element={<AllRoutes/>}/>
                           <Route path="depots" element={<AllDepots/>}/>
+                          <Route path="login" element={<Login/>}/>
+                          <Route path="admin" element={<AdminRoute/>}/>
                       </Routes>
                   </BrowserRouter>
               </div>
