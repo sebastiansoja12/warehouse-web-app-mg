@@ -18,10 +18,11 @@ function App() {
                   <BrowserRouter>
                       <Header/>
                       <Routes>
-                          <Route path="/" element={<AllRoutes/>}/>
+                          <Route path="/" element={<Login/>}/>
                           <Route path="depots" element={<AllDepots/>}/>
                           <Route path="login" element={<Login/>}/>
                           <Route path="admin" element={<AdminRoute/>}/>
+                          <Route path="routes" element={<AllRoutes/>}/>
                       </Routes>
                   </BrowserRouter>
               </div>
