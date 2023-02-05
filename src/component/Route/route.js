@@ -8,7 +8,7 @@ export default function AllRoutes() {
 
 
     function loadRoutes() {
-        fetch(globalUrl.url + "/v2/api/routes/by-parcel")
+        fetch(`${process.env.REACT_APP_SERVER_URL}/routes/by-parcel`)
             .then((res) => res.json())
             .then((res) => setRoute(res));
     }

@@ -1,4 +1,3 @@
-import {globalUrl} from "../../url";
 import {useEffect, useState} from "react";
 
 export default function AdminRoute() {
@@ -6,7 +5,7 @@ export default function AdminRoute() {
 
 
     function loadUser() {
-        fetch(globalUrl.url + "/v2/api/auth/s-soja")
+        fetch(`${process.env.REACT_APP_SERVER_URL}/auth/s-soja`)
             .then((res) => res.json())
             .then((res) => setUser(res));
     }

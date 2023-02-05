@@ -6,7 +6,7 @@ export default function AllDepots() {
 
 
     function loadDepots() {
-        fetch(globalUrl.url + "/v2/api/depots/all")
+        fetch(`${process.env.REACT_APP_SERVER_URL}/depots/all`)
             .then((res) => res.json())
             .then((res) => setDepot(res));
     }

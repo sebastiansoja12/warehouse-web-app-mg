@@ -1,7 +1,24 @@
 import {Link} from "react-router-dom";
+import {TooltipComponent} from "@syncfusion/ej2-react-popups";
+import {FiSettings} from "react-icons/fi";
+import React, {useEffect} from 'react';
 
+import SettingsIcon from '@mui/icons-material/Settings';
+
+import {useStateContext} from "../contexts/ContextProvider";
 
 export default function Header() {
+    const { setCurrentColor, setCurrentMode, currentMode, activeMenu, currentColor, themeSettings, setThemeSettings } = useStateContext();
+
+    useEffect(() => {
+        const currentThemeColor = localStorage.getItem('colorMode');
+        const currentThemeMode = localStorage.getItem('themeMode');
+        if (currentThemeColor && currentThemeMode) {
+            setCurrentColor(currentThemeColor);
+            setCurrentMode(currentThemeMode);
+        }
+    }, []);
+
     return (
         <div className="navbar bg-neutral">
             <div className="navbar-start">
@@ -38,16 +55,33 @@ export default function Header() {
                 <div className="dropdown">
                     <label tabIndex="0" className="btn m-1">Warehouse</label>
                     <ul tabIndex="0" className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                        <Link to='/'>
-                        <li><button className="btn">Routes</button></li>
-                        </Link>
-                        <li><button className="btn">Register worker</button></li>
 
-                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                        <li><button className="btn">Register a parcel</button></li>
-                        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-                        <li><button className="btn">Find a parcel</button></li>
-                        <li><button className="btn">Generate label</button></li>
+                        <li>
+                            <Link to='/'>
+                            Routes
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/'>
+                            Register worker
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link to = '/register/route'>
+                            Register a parcel
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/'>
+                            Find a parcel
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to='/'>
+                            Generate label
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -63,7 +97,7 @@ export default function Header() {
                               </span>
                             <input type="search" name="q"
                                    className="py-2 text-sm text-white bg-gray-900 rounded-md pl-10 focus:outline-none"
-                                   placeholder="Find your parcel" autoComplete="off"/>
+                                   placeholder="Find a parcel" autoComplete="off"/>
                         </div>
                     </form>
             </div>
@@ -97,6 +131,21 @@ export default function Header() {
                         <span className="badge badge-xs badge-primary indicator-item"></span>
                     </div>
                 </button>
+                <TooltipComponent
+                    content="Settings"
+                    position="Top"
+                >
+
+                    <button
+                        type="button"
+                        onClick={() => setThemeSettings(true)}
+                        style={{ outline: currentColor}}
+                        className="btn"
+                    >
+                        <SettingsIcon/>
+                    </button>
+
+                </TooltipComponent>
                 <Link to="/login">
                     <button className="btn btn-outline btn-accent">Log in</button>
                 </Link>
