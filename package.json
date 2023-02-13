@@ -1,6 +1,6 @@
 {
   "name": "inparcel-mg",
-  "version": "2023.2",
+  "version": "2023.3",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
